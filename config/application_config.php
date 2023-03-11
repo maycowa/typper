@@ -1,6 +1,6 @@
 <?php
 /**
- * 2019 Typper
+ * 2021 Typper
  * This file contains the application configuration. Change it's values to change the 
  * default behaviour
  */
