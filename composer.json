@@ -7,7 +7,8 @@
         "tedivm/stash": "^0.15.2",
         "cocur/slugify": "^3.2",
         "splitbrain/php-cli": "^1.1",
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+        "symfony/yaml": "^5.0@dev"
     },
     "require-dev": {
         "psy/psysh": "@stable"
@@ -23,6 +24,10 @@
     "autoload": {
         "psr-4": {
             "Typper\\": "src/Typper"
-        }
+        },
+        "files": [
+            "src/Typper/Helpers/configuration_helper.php",
+            "src/Typper/Helpers/format_helper.php"
+        ]
     }
 }
