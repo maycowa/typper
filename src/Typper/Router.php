@@ -22,7 +22,7 @@ class Router
     /**
      * The Theme Manager
      *
-     * @var ThemeManager
+     * @var ThemeManagerInterface
      */
     protected $themeManager;
 
@@ -34,7 +34,8 @@ class Router
     public function __construct(string $path)
     {
         $this->path = $path;
-        $this->themeManager = new ThemeManager();
+        $themeManager = config('app.themeManager');
+        $this->themeManager = new $themeManager();
     }
 
     /**
@@ -58,8 +59,10 @@ class Router
     {
         // Gets the article path from url
         $currentDirectory = dirname($_SERVER['SCRIPT_NAME']);
-        $path = trim(str_replace($currentDirectory, '', $_SERVER["REQUEST_URI"]), '/');
-
+        $path = $_SERVER["REQUEST_URI"];
+        if ($currentDirectory != '/') {
+            $path = trim(str_replace($currentDirectory, '', $_SERVER["REQUEST_URI"]), '/');
+        }
         return new self($path);
     }
 

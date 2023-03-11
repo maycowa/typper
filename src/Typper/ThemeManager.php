@@ -5,12 +5,15 @@
 
 namespace Typper;
 
+use Typper\Skeleton\ContentInterface;
+use Typper\Skeleton\ThemeManagerInterface;
+
 /**
  * Typper Theme Manager
  * 
  * @package Typper
  */
-class ThemeManager
+class ThemeManager implements ThemeManagerInterface
 {
     /**
      * The current active theme
@@ -82,9 +85,9 @@ class ThemeManager
      * Gets a content from a given path
      *
      * @param string $path
-     * @return Content
+     * @return ContentInterface
      */
-    protected function getContentFromPath(string $path): Content
+    protected function getContentFromPath(string $path): ContentInterface
     {
         return $this->loader->load($path);
     }
@@ -108,7 +111,7 @@ class ThemeManager
     protected function showCategoryTemplate(Category $category)
     {
         $this->includeTemplatePart('header');
-        $this->includeTemplatePart('category');
+        $this->includeTemplatePart('category', ['category' => $category]);
         $this->includeTemplatePart('footer');
         exit;
     }

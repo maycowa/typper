@@ -34,7 +34,15 @@ return [
     'app' => [
         // The path where all articles and pages will be stored
         'contentsPath' => 'contents',
+        // The path to the available themes folder
         'themesPath' => 'themes',
+        // The path to the public folder to store files and data
         'publicPath' => 'public',
+        // The Content class definition
+        'content' => \Typper\Content::class,
+        // The Category class definition
+        'category' => \Typper\Category::class,
+        // The ThemeManager class definition
+        'themeManager' => \Typper\ThemeManager::class,
     ]    
 ];

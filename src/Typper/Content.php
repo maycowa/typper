@@ -7,6 +7,7 @@ namespace Typper;
 
 use Arrayy\Arrayy;
 use Kurenai\Parser;
+use Typper\Skeleton\ContentInterface;
 use Kurenai\Parsers\Content\MarkdownParser;
 
 /**
@@ -15,7 +16,7 @@ use Kurenai\Parsers\Content\MarkdownParser;
  *
  * @package \Typper
  */
-class Content
+class Content implements ContentInterface
 {
     /**
      * The content's slug
@@ -122,7 +123,7 @@ class Content
      * @param string $path
      * @return self
      */
-    public static function fromPath(string $path): self
+    public static function fromPath(string $path): ContentInterface
     {
         $contentsPath = trim(config('app.contentsPath','/'));
         $filePath = "{$contentsPath}/{$path}.md";
@@ -149,7 +150,7 @@ class Content
      * @param array $array
      * @return self
      */
-    public static function fromArray(array $array): self
+    public static function fromArray(array $array): ContentInterface
     {
         $content = new self;
         $content->slug = $array['slug'];
@@ -185,6 +186,18 @@ class Content
         $content->category = Category::fromSlug(getCategoryFromSlug($content->slug));
 
         return $content;
+    }
+
+    /**
+     * Gets a Content based on it's file path
+     *
+     * @param string $path
+     * @return ContentInterface
+     */
+    public static function fromFilePath(string $path): ContentInterface
+    {
+        $path = str_replace('.md', '', $path);
+        return self::fromPath($path);
     }
 
     /**

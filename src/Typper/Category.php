@@ -5,14 +5,16 @@
 
 namespace Typper;
 
+use Nette\Utils\Finder;
 use Symfony\Component\Yaml\Yaml;
+use Typper\Skeleton\CategoryInterface;
 
  /**
   * The category class
   *
   * @package \Typper
   */
-class Category
+class Category implements CategoryInterface
 {
     /**
      * An array with all loaded categories
@@ -62,12 +64,27 @@ class Category
     }
 
     /**
+     * Gets all the contents from the current Category
+     *
+     * @return ContentInterface[]
+     */
+    public function getContents(): array
+    {
+        $contents = [];
+        $path = config('app.contentsPath').DIRECTORY_SEPARATOR.$this->slug;
+        foreach (Finder::findFiles('*.md')->in($path) as $key => $file) {
+            $contents[] = Content::fromFilePath($file);
+        }
+        return $contents;
+    }
+
+    /**
      * Gets a Category object based on an array
      *
      * @param array $array
      * @return self
      */
-    public static function fromArray(array $array): self
+    public static function fromArray(array $array): CategoryInterface
     {
         return new self($array['title'], $array['slug'], $array['description'] ?? '');
     }
@@ -79,11 +96,10 @@ class Category
      * @param boolean $forceReload If true, force the reload of the categories list
      * @return self A Category object filled with found data or empty
      */
-    public static function fromSlug(string $slug, bool $forceReload = false): self
+    public static function fromSlug(string $slug, bool $forceReload = false): CategoryInterface
     {
-        
         return array_filter(self::getCategories($forceReload), function ($item) use ($slug) {
-            if ($item->slug == $slug) {
+            if (trim($item->slug, '/') == trim($slug, '/')) {
                 return $item;
             }
         })[0] ?? self::notFoundCategory();
@@ -95,7 +111,7 @@ class Category
      * @param bool $reload If true, reloads the data if it's loaded
      * @return Category[]
      */
-    public static function getCategories(bool $reload = false)
+    public static function getCategories(bool $reload = false): array
     {
         if (!empty(static::$categories) && !$reload) {
             return static::$categories;

@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d4863483c564ec3e2881ea32394440c",
+    "content-hash": "952ebe95200a89e08655ac99deaf1470",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -69,7 +69,7 @@
                 "slug",
                 "slugify"
             ],
-            "time": "2019-01-31 20:38:55"
+            "time": "2019-01-31T20:38:55+00:00"
         },
         {
             "name": "daylerees/kurenai",
@@ -192,7 +192,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2018-06-15 19:03:38"
+            "time": "2018-06-15T19:03:38+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -288,7 +288,7 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2018-05-08 22:06:04"
+            "time": "2018-05-08T22:06:04+00:00"
         },
         {
             "name": "illuminate/contracts",
@@ -332,7 +332,7 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2019-06-13 19:12:39"
+            "time": "2019-06-13T19:12:39+00:00"
         },
         {
             "name": "illuminate/support",
@@ -393,7 +393,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2019-06-15 11:11:47"
+            "time": "2019-06-15T11:11:47+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -454,6 +454,141 @@
                 "time"
             ],
             "time": "2019-06-07T09:56:45+00:00"
+        },
+        {
+            "name": "nette/finder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/finder.git",
+                "reference": "0dd12632325cf2ba9aa523a7f0d586ff79279841"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/finder/zipball/0dd12632325cf2ba9aa523a7f0d586ff79279841",
+                "reference": "0dd12632325cf2ba9aa523a7f0d586ff79279841",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^3.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "nette/tester": "^2.2",
+                "tracy/tracy": "^2.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🔍 Nette Finder: find files and directories with an intuitive API.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "filesystem",
+                "glob",
+                "iterator",
+                "nette"
+            ],
+            "time": "2019-07-16T16:31:42+00:00"
+        },
+        {
+            "name": "nette/utils",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/utils.git",
+                "reference": "74c206bd6310bf0f9f8bd27064228cc0528d5334"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/utils/zipball/74c206bd6310bf0f9f8bd27064228cc0528d5334",
+                "reference": "74c206bd6310bf0f9f8bd27064228cc0528d5334",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "nette/tester": "~2.0",
+                "tracy/tracy": "^2.3"
+            },
+            "suggest": {
+                "ext-gd": "to use Image",
+                "ext-iconv": "to use Strings::webalize() and toAscii()",
+                "ext-intl": "to use Strings::webalize(), toAscii(), normalize() and compare()",
+                "ext-json": "to use Nette\\Utils\\Json",
+                "ext-mbstring": "to use Strings::lower() etc...",
+                "ext-xml": "to use Strings::length() etc. when mbstring is not available"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "array",
+                "core",
+                "datetime",
+                "images",
+                "json",
+                "nette",
+                "paginator",
+                "password",
+                "slugify",
+                "string",
+                "unicode",
+                "utf-8",
+                "utility",
+                "validation"
+            ],
+            "time": "2019-08-07T12:21:21+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -651,7 +786,7 @@
                 "psr",
                 "psr-6"
             ],
-            "time": "2016-10-13 14:48:10"
+            "time": "2016-10-13T14:48:10+00:00"
         },
         {
             "name": "psr/container",
@@ -700,7 +835,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2018-12-29 15:36:03"
+            "time": "2018-12-29T15:36:03+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -748,7 +883,7 @@
                 "psr-16",
                 "simple-cache"
             ],
-            "time": "2017-10-23 01:57:42"
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "splitbrain/php-cli",
@@ -857,7 +992,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06 07:57:58"
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -916,7 +1051,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06 07:57:58"
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "symfony/translation",
@@ -992,7 +1127,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-13 11:05:05"
+            "time": "2019-06-13T11:05:05+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -1049,7 +1184,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-06-13 11:15:36"
+            "time": "2019-06-13T11:15:36+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1108,7 +1243,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-05-31 10:46:22"
+            "time": "2019-05-31T10:46:22+00:00"
         },
         {
             "name": "tedivm/stash",
@@ -1235,7 +1370,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-06-14 07:22:44"
+            "time": "2019-06-14T07:22:44+00:00"
         },
         {
             "name": "voku/arrayy",
@@ -1290,7 +1425,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2019-05-24 22:20:22"
+            "time": "2019-05-24T22:20:22+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -1561,7 +1696,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-04 14:25:12"
+            "time": "2019-06-04T14:25:12+00:00"
         },
         {
             "name": "psy/psysh",
@@ -1710,7 +1845,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-13 11:05:05"
+            "time": "2019-06-13T11:05:05+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -1765,7 +1900,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06 07:57:58"
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "symfony/polyfill-php73",
@@ -1823,7 +1958,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06 07:57:58"
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -1881,7 +2016,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-06-13 11:15:36"
+            "time": "2019-06-13T11:15:36+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -1957,7 +2092,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2019-06-13 16:29:46"
+            "time": "2019-06-13T16:29:46+00:00"
         }
     ],
     "aliases": [],
@@ -1966,6 +2101,7 @@
         "symfony/yaml": 20,
         "voku/arrayy": 20,
         "erusev/parsedown-extra": 20,
+        "nette/finder": 20,
         "psy/psysh": 0
     },
     "prefer-stable": false,

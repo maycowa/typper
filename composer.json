@@ -10,7 +10,8 @@
         "twig/twig": "^2.0",
         "symfony/yaml": "^5.0@dev",
         "voku/arrayy": "dev-master",
-        "erusev/parsedown-extra": "dev-master"
+        "erusev/parsedown-extra": "dev-master",
+        "nette/finder": "^3.0@dev"
     },
     "require-dev": {
         "psy/psysh": "@stable"

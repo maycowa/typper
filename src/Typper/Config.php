@@ -49,7 +49,7 @@ class Config
      * 
      * @return self
      */
-    public function singleton(): self
+    public static function singleton(): self
     {
         if (empty(static::$instance)) {
             static::$instance = new self();
