@@ -57,5 +57,15 @@ class Loader
         }
         return $data;
     }
+
+    public function purge()
+    {
+        $this->cachePool->purge();
+    }
+
+    public function clear()
+    {
+        $this->cachePool->clear();
+    }
 }
 
