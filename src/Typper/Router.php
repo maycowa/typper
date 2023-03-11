@@ -7,6 +7,8 @@ namespace Typper;
 
 /**
  * Typper Router
+ *
+ * @package \Typper
  */
 class Router
 {
@@ -18,11 +20,11 @@ class Router
     protected $path;
 
     /**
-     * The articles loader
+     * The Theme Manager
      *
-     * @var Loader
+     * @var ThemeManager
      */
-    protected $loader;
+    protected $themeManager;
 
     /**
      * Router constructor
@@ -32,7 +34,7 @@ class Router
     public function __construct(string $path)
     {
         $this->path = $path;
-        $this->loader = new Loader();
+        $this->themeManager = new ThemeManager();
     }
 
     /**
@@ -73,12 +75,10 @@ class Router
     }
 
     /**
-     * Loads an route and return as string
-     * 
-     * @return string
+     * Loads an route and shows the template
      */
-    public function load(): string
+    public function load()
     {
-        return $this->loader->load($this->path);
+        $this->themeManager->fromPath($this->path);
     }
 }

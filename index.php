@@ -4,4 +4,6 @@
  */
 include_once "vendor/autoload.php";
 
-echo \Typper\Router::fromUrl()->load();
+\Typper\Router::fromUrl()->load();
+//print_r(Typper\Category::getCategories());
+//print_r(Typper\Content::fromPath('teste'));

@@ -4,24 +4,27 @@
  */
 namespace Typper;
 
+use Arrayy\Arrayy;
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * Defines the Configuration for the application
+ *
+ * @package \Typper
  */
 class Config
 {
     /**
      * Stores all the application configurations
      * 
-     * @var array
+     * @var Arrayy
      */
     protected $config;
     
     /**
      * Stores all the editorial configuration
      * 
-     * @var array
+     * @var Arrayy
      */
     protected $editorial;
 
@@ -37,8 +40,8 @@ class Config
      */
     public function __construct()
     {
-        $this->config = include('config/application_config.php');
-        $this->editorial = Yaml::parseFile('config/editorial.yaml');
+        $this->config = new Arrayy(include('config/application_config.php'));
+        $this->editorial = new Arrayy(Yaml::parseFile('config/editorial.yml'));
     }
 
     /**
@@ -62,7 +65,7 @@ class Config
      */
     public static function get(string $key)
     {
-        return self::singleton()->config[$key] ?? self::singleton()->editorial[$key] ?? null;
+        return self::singleton()->config->get($key) ?? self::singleton()->editorial->get($key) ?? null;
     } 
 }
 

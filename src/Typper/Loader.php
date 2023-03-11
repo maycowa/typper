@@ -8,7 +8,9 @@ namespace Typper;
 use Stash\Pool;
 
 /**
- * Typper articles and pages Loader
+ * Typper contents Loader
+ *
+ * @package \Typper
  */
 class Loader
 {
@@ -24,26 +26,23 @@ class Loader
      */
     public function __construct()
     {
-        $driverClass = config('cacheDriver');
-        $driver = new $driverClass(config('cacheOptions'));
+        $driverClass = config('cache.driver');
+        $driver = new $driverClass((array)config('cache.options'));
         $this->cachePool = new Pool($driver);
     }
 
     /**
-     * Loads a path from the cache or file and stores the cache
+     * Loads a path and returns a content
      * 
      * @param string $path
-     * @return string
+     * @return Content
      */
-    public function load(string $path): string
+    public function load(string $path): Content
     {
         // If empty path is given, assumes it's the home
         if ($path == '') {
             $path = 'home';
         }
-
-        $originalPath = $path;
-        $path = slugify($path);
         
         // Gets from cache the data
         $item = $this->cachePool->getItem($path);
@@ -52,7 +51,7 @@ class Loader
         // If the item is not stored on cache, loads the data
         if($item->isMiss()){
             $item->lock();
-            $data = 'teste';
+            $data = Content::fromPath($path);
             // Stores at cache the returned data
             $this->cachePool->save($item->set($data));
         }
