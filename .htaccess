@@ -1,0 +1,9 @@
+RewriteEngine On
+
+<FilesMatch "\.(?:md|yml|yaml|ini|env)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]
