@@ -27,7 +27,7 @@ class Loader
     public function __construct()
     {
         $driverClass = config('cache.driver');
-        $driver = new $driverClass((array)config('cache.options'));
+        $driver = new $driverClass(configAsPureArray('cache.options'));
         $this->cachePool = new Pool($driver);
     }
 
@@ -40,7 +40,7 @@ class Loader
     public function load(string $path): Content
     {
         // If empty path is given, assumes it's the home
-        if ($path == '') {
+        if (in_array($path, ['', '/'])) {
             $path = 'home';
         }
         
@@ -50,6 +50,7 @@ class Loader
         $data = $item->get();
         // If the item is not stored on cache, loads the data
         if($item->isMiss()){
+            var_dump('cache empty');
             $item->lock();
             $data = Content::fromPath($path);
             // Stores at cache the returned data
@@ -65,7 +66,17 @@ class Loader
 
     public function clear()
     {
-        $this->cachePool->clear();
+        //$this->cachePool->clear();
+        $cacheFolder = config('cache.options.path');
+        $files = glob($cacheFolder);
+        foreach($files as $file){
+            unlink($file);
+        }
+    }
+
+    public function deleteCache(string $file)
+    {
+        $this->cachePool->deleteItem($file);
     }
 }
 

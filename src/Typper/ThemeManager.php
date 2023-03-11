@@ -75,7 +75,7 @@ class ThemeManager implements ThemeManagerInterface
     protected function showHomeIfPossible(string $path)
     {
         $homeFilePath = "{$this->themesPath}/{$this->activeTheme}/home.php";
-        if ($path == '' || $path == 'home' && file_exists($homeFilePath)) {
+        if (in_array($path, ['', '/', 'home']) && file_exists($homeFilePath)) {
             include_once($homeFilePath);
             exit;
         }

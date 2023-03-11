@@ -19,6 +19,18 @@ function config(string $key)
 }
 
 /**
+ * Gets a configuration as a pure array, not as an 
+ * Arrayy/Arrayy object
+ *
+ * @param string $key
+ * @return array
+ */
+function configAsPureArray(string $key): array
+{
+    return json_decode(Config::get($key)->toJson(), true);
+}
+
+/**
  * Slugify a given text
  *
  * @param string $string
