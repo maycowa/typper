@@ -1,5 +1,5 @@
 {
-    "name": "laralabs/typper",
+    "name": "laraantunes/typper",
     "description": "A minimalistic cli and markdown-based cms",
     "type": "project",
     "require": {
